@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce website</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+
+        .header {
+            min-height: 60px;
+            margin-top: 25px;
+        }
+
+        .wrapper {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .logo h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .logo h1 span:first-of-type {
+            padding: 0px 15px;
+            border: 1px solid gray;
+            margin-right: 5px;
+            color: #d19c97;
+        }
+
+        .search-products,
+        .logo,
+        .selected-products {
+            float: left;
+        }
+
+        .logo {
+            width: 25%;
+        }
+
+        .search-products {
+            width: 50%;
+        }
+
+        .search-products input {
+            width: 70%;
+            padding: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            border-right: none;
+            border-radius: 0;
+            color: #d19c97;
+            height: 31px;
+        }
+
+        .search-products input:focus {
+            outline: none;
+        }
+
+        .search-products button {
+            height: 39px;
+            font-size: 18px;
+            color: #d19c97;
+            padding: 4px 9px 23px 12px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-left: -3px;
+
+        }
+
+        .selected-products button svg {
+            margin: 3px 10px -3px 11px;
+
+        }
+
+        .selected-products {
+            width: 25%;
+            text-align: right;
+        }
+
+        .selected-products button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            min-width: 50px;
+            height: 35px;
+            text-align: center;
+            color: #d19c97;
+        }
+
+        .selected-products button span {
+            font-size: 22px;
+            font-weight: 600;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            overflow-x: hidden;
+        }
+
+        .full-banner-wrapper {
+            border: 1px solid #ddd;
+        }
+
+        .list-header {
+            height: 65px;
+            background-color: #d19c97;
+            float: unset;
+            font-family: "poppins";
+        }
+
+        .list-header h4 {
+            display: inline-block;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .list-header span {
+            float: right;
+            padding: 20px;
+        }
+
+        .banner-area {
+            width: 25%;
+            float: left;
+        }
+
+        .wrapper {
+            clear: both;
+        }
+
+        .wrapper .banner-area ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 1px solid #ddd;
+        }
+
+        .wrapper .banner-area ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .wrapper .banner-area ul li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 40px;
+        }
+
+        .flip-img {
+            transform: scaleX(-1);
+        }
+
+        .wid-75 {
+            width: 75%;
+            float: left;
+        }
+
+        .shop-menu {
+            display: flex;
+        }
+
+        .left-menu-list {
+            width: 70%;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .right-menu-list {
+            direction: rtl;
+            width: 30%;
+        }
+
+        .shop-menu ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .shop-menu ul .dropdown {
+            display: none;
+        }
+
+        .flle {
+            font-size: 26px;
+            width: 25%;
+            text-align: center;
+            font-weight: 700;
+            margin: 29px 32px 12px 13px;
+            border: 1px solid #ccc;
+            padding: 16px 41px;
+        }
+
+        .shop-menu ul li {
+            min-width: 75px;
+            padding: 20px;
+        }
+
+        .dropdown {}
+
+        .shop-menu ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-head:hover ul.dropdown {
+            display: block;
+        }
+
+        ul.dropdown {
+            border: 1px solid #ddd;
+            display: block;
+            position: absolute;
+            box-shadow: #ddd 1px 1px 2px;
+        }
+
+        .shop-menu ul li a:hover {
+            text-decoration: none;
+            color: #d19c97;
+        }
+
+        .img img {
+            width: 889px;
+            height: 270px;
+        }
+
+        .wid-75 .banner {
+            position: relative;
+            height: 400px;
+            float: left;
+            margin-left: 15px;
+            width: 100%;
+        }
+
+        .wid-75 .banner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner-text {
+            display: flex;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #ffe4c421;
+            left: 0;
+            margin: 0;
+            color: aliceblue;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .banner-text h4 {
+            text-transform: uppercase;
+            font-size: 25px;
+            margin: 0;
+            color: #fbfbfb;
+            font-weight: 500;
+        }
+
+        .banner-text h3 {
+            font-size: 49px;
+            color: cyan;
+            margin: 6px 4px;
+        }
+
+        a.shop-now {
+            font-size: 20px;
+            padding: 15px 15px;
+            background-color: azure;
+            text-decoration: none;
+        }
+
+        .wid-25 {
+            width: 25%;
+        }
+
+        .wid-25 {
+            width: 25%;
+        }
+
+
+        .icon-text-wrap span svg {
+            margin-right: 10px;
+        }
+
+        .wrapper {
+            clear: both;
+        }
+
+        .arrange-left {
+            float: left;
+        }
+
+        .features-point {
+            margin-top: 30px;
+            margin-right: 24px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+        }
+
+        .icon-text-wrap {
+            padding: 30px;
+            align-items: center;
+            display: flex;
+        }
+
+        .icon-text-wrap span {
+            font-size: 23px;
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        .next-row {
+            clear: both;
+        }
+
+        .wid-33 {
+            width: 33.3%;
+        }
+
+        .category-item {
+            padding: 30px;
+            border: 1px solid #d19c97;
+            margin-right: 25px;
+            margin-top: 25px;
+        }
+
+        .category-item .product-count {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .category-item .category-image img {
+            width: 100%;
+        }
+
+        .category-type h4 {
+            font-size: 25px;
+            margin-bottom: 0;
+            color: #d19c97;
+        }
+
+        .category-item .category-image img:hover {
+            width: 110%;
+            transition: all 1s ease;
+        }
+
+        .wid-50 {
+            width: 50%;
+        }
+
+        .offer-banner {
+            background-color: rosybrown;
+            position: relative;
+            margin-bottom: 50px;
+            margin-top: 25px;
+        }
+
+        .offer-banner img {
+            position: absolute;
+            bottom: 0;
+            max-width: 21%;
+            max-height: 100%;
+            z-index: 10;
+            float: left;
+            transform: scaleX(-1);
+        }
+
+        .offer-banner .offer-text {
+            text-align: right;
+            padding: 30px;
+        }
+
+        .offer-text h6 {
+            font-size: 20px;
+            color: aliceblue;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .full-banner-wrapper {
+            clear: both;
+        }
+
+        .offer-text h5 {
+            font-size: 39px;
+            color: darkslategrey;
+            margin-top: 10px;
+            font-weight: 800;
+        }
+
+        .offer-text button {
+            font-size: 27px;
+            padding: 6px 18px;
+            background-color: azure;
+        }
+
+        .offer-banner img:hover {
+            width: 35%;
+        }
+
+        .offer-text h6:hover {
+            font-size: 25px;
+            color: rgb(170, 169, 236);
+            transition: all 1s ease;
+            background-color: #1f1919;
+        }
+
+        .offer-text button:hover {
+            background-color: rgb(215, 229, 230);
+            transition: all 0.2s ease;
+        }
+
+        .cart {
+            border: 1px solid #ccc;
+            margin-right: 25px;
+            margin-top: 15px;
+        }
+
+        .cart img {
+            width: 100%;
+        }
+
+        .cart img:hover {
+            width: 107%;
+            transition: all 1s ease;
+            transform: translateX(10deg) rotateX(360deg);
+        }
+
+        .cart .cart-details {
+            padding: 15px;
+            border-bottom: 1px solid #504a4a;
+        }
+
+        .cart-details .six {
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .cart-price {
+            text-align: center;
+            margin: 15px 5px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .cart-price span .last {
+            text-decoration: line-through;
+            margin-left: 12px;
+            color: brown;
+            text-decoration-line: line-through;
+        }
+
+        .cart .cart-footer {
+            font-size: 16px;
+            padding: 15px 10px;
+        }
+
+        .cart .cart-footer a {
+            color: brown;
+            text-decoration: none;
+            margin-right: 12px;
+        }
+
+        .wid-100 {
+            width: 100%;
+        }
+
+        .wrapper .ami {
+            border: 1px solid black;
+            margin-top: 72px;
+            padding: 55px 109px;
+            box-sizing: border-box;
+            background-color: aliceblue;
+            margin-bottom: 59px;
+            text-align: center;
+            height: 404px;
+        }
+
+        .ami h1 {
+            font-size: 40px;
+            text-transform: math-auto;
+        }
+
+        .ami p {
+            font-size: 22px;
+
+        }
+
+        .ami input {
+            font-size: 22px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 3px;
+            padding-right: 118px;
+        }
+
+        .ami button {
+            font-size: 20px;
+            border: 1px solid black;
+            padding: 11px 10px;
+            border-left: none;
+            margin-left: -5px;
+            background-color: #d19c97;
+        }
+
+        .wid-15 {
+            width: 15%;
+        }
+
+        .nani {
+            display: flex;
+        }
+
+        .nani .abu {
+            margin-top: 67px;
+            margin-bottom: 80px;
+            background-color: aliceblue;
+            padding-top: 47px;
+            padding-bottom: 47px;
+            padding-left: 54px;
+            font-size: 20px;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .ecomm {
+            display: flex;
+            gap: 10px;
+        }
+
+        .ecomm h1:first-of-type {
+            color: rosybrown;
+        }
+
+        .nyaana p {
+            font-size: 18px;
+        }
+
+        .nyaana address .phone,
+        .email {
+            font-size: 18px;
+        }
+
+        .nyaana h6 {
+            font-size: 17px;
+            font-weight: 500;
+            margin: 15px;
+        }
+
+        .nyaana input {
+            font-size: 18px;
+            padding-top: 16px;
+            margin-top: 10px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border: 1px solid white;
+            padding-left: 3px;
+            padding-right: 22px;
+            background-color: white;
+        }
+
+        .abu .nyaana button {
+            font-size: 19px;
+            border: 1px solid white;
+            background-color: #d19c97;
+            padding: 22px 60px;
+        }
+
+        .phone svg {}
+
+        .wid-15 {
+            width: 15%;
+        }
+
+        .email svg {}
+
+        address svg {}
+
+        .nyaana address {
+            margin-bottom: 5px;
+        }
+
+        .wid-10 {
+            width: 10%;
+        }
+
+        .nyaana .phone {
+            margin-bottom: 5px;
+        }
+
+        .nyaana .email {
+            margin-bottom: 5px;
+        }
+
+        .naani .ammi {
+            align-items: center;
+            margin-top: 54px;
+            margin-bottom: 33px;
+            margin-right: 25px;
+            margin-left: 25px;
+        }
+
+
+        .bchha img {
+            width: 62%;
+            height: 100px;
+        }
+
+        .naani .ammi .bchha {
+            padding: 14px 20px;
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+
+        .naani .ammi {
+            margin-top: 54px;
+            margin-bottom: 33px;
+            margin-right: 50px;
+            margin-left: 50px;
+            display: flex
+        }
+
+        ;
+
+        .h2-h3 {
+            background-color: aliceblue;
+            margin-top: -73px;
+            padding: 1px 24px;
+        }
+
+        .one {
+            font-size: 23px;
+            margin-right: 20px;
+            font-weight: 800;
+            text-decoration: underline;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .three {
+            font-size: 20px;
+            margin-left: 5px;
+            font-weight: 800;
+        }
+
+        .two {
+            font-weight: 200;
+            font-size: 18px;
+        }
+
+        .one img {
+            width: 151px;
+            filter: drop-shadow(2px 4px 6px black) hue-rotate(844deg);
+            margin-top: 10px;
+            border: 1px soilid black;
+            object-fit: cover;
+            object-position: right;
+            height: 76px;
+            margin-left: 41px;
+        }
+
+        @media (max-width:990px) {
+
+            .wid-75,
+            .wid-33,
+            .wid-50,
+            .wid-25,
+            .bchha {
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .naani .ammi {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .abu {
+                display: flex;
+            }
+
+            .wrapper .ami {
+                padding: 2px 1px;
+            }
+
+            .nani {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .ami p {
+                font-size: 18px;
+
+            }
+
+            .ami input {
+                margin-top: 6px;
+                margin-bottom: 12px;
+                font-size: larger;
+                padding: 17px 9px;
+            }
+
+            .one p img {
+                margin-top: 25px;
+                margin-left: 108px;
+            }
+
+            .banner-text h4 {
+                font-size: 22px;
+                margin-bottom: 29px;
+            }
+
+            .banner-text h3 {
+                font-size: 38px;
+                margin-bottom: 54px;
+            }
+
+            .banner-text .shop-now {
+                font-size: 22px;
+                margin-top: -22px;
+                padding: 15px 29px;
+            }
+
+            .nyaana input {
+                margin-right: 39px;
+            }
+
+            .nyaana button {
+                margin-left: 32px;
+            }
+
+            .h2-h3 {
+                text-align: center;
+            }
+
+            .arrange-left {
+                float: none;
+            }
+
+            .search-products {
+                display: flex;
+            }
+
+            .search-products input {
+                display: flex;
+                flex: 100%;
+            }
+
+            .selected-products {
+                display: flex;
+            }
+
+            .selected-products button {
+                display: flex;
+                flex: 50%;
+            }
+
+            .shop-menu {
+                flex: none;
+                display: block;
+            }
+
+            .left-menu-list {
+                display: block;
+            }
+
+            .right-menu-list {
+                display: block;
+            }
+
+            .shop-menu ul {
+                display: block;
+            }
+        }
+
+        .wid-100 {
+            width: 100%;
+        }
+
+        .shop-header {
+            background-color: aliceblue;
+            text-align: center;
+            padding: 59px 9px;
+        }
+
+        .shop-header h1 {
+            text-transform: uppercase;
+        }
+
+        .shop-header h3 {
+            color: #d19c97;
+            font-weight: 600;
+        }
+
+        .sort-options {
+            text-align: end;
+            margin-right: 28px;
+            margin-top: 9px;
+            margin-bottom: 20px;
+        }
+
+        .sort-options select {
+            font-size: 20px;
+            padding: 13px 10px;
+            width: 139px;
+            border: 1px solid #d19c97;
+            border-radius: 28px;
+            background-color: aliceblue;
+            color: #d19c97;
+        }
+
+        .custom-control {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            margin-left: 20px;
+            min-height: 16px;
+            color: black;
+            padding-left: 16px;
+        }
+
+        .custom-control span {
+            font-size: 13px;
+        }
+
+        .custom-control-check {
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            z-index: -1;
+            opacity: 0;
+            left: 0;
+        }
+
+        .custom-control-label {
+            position: relative;
+            padding: 1px 8px;
+            vertical-align: top;
+            margin-bottom: 0;
+        }
+
+        .custom-control-label::before {
+            position: absolute;
+            top: 3px;
+            left: -25px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            content: "";
+            border: 1px solid black;
+        }
+
+        .custom-control-check:checked~.custom-control-label::before {
+            border: 1px solid rgb(0, 0, 0);
+            background-color: #d19c97;
+            background-color: #d19c97;
+            background-image: url(boxes/unnamed.png);
+            background-size: cover;
+        }
+
+        .custom-control-label::after {
+            position: absolute;
+            top: 4px;
+            left: -25px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: no-repeat 50% / 50% 50%;
+        }
+
+        .sort-options select {
+            outline: none;
+        }
+
+        .cart-details {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .cart-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-details table th {
+            padding: 15px;
+            background-color: aliceblue;
+            color: #666;
+        }
+
+        .cart-details table td {
+            border: 1px solid #ccc;     text-align: -webkit-center;
+            padding: 5px;
+        }
+
+        .cartr-details tbody {
+            vertical-align: middle;
+        }
+
+        .quantity-input {
+            display: flex;justify-content: center;
+        }
+
+        .quantity-input button {
+            border: 0;
+            background-color: #d19c97;
+            font-size: 25px;
+            width: 30px;
+        }
+
+        .quantity-input input {
+
+            width: 50px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: azure;
+        }
+
+        td .custom-delete-button {
+            padding: 5px;
+            background-color: #d19c97; width: 24px;
+        }
+        td img{
+            
+    width: 61px;margin-right: 10px;
+    vertical-align: middle;
+        }
+        .quantity-input input{
+            outline: none;
+        }
+        .cart-summary-wrapper{
+            margin-top: 50px;margin-left: 20px;
+        }
+        .cart-summary-wrapper .coupon-inputs{
+            display: flex;height: 50px;
+        }
+        .coupon-inputs input{
+            border: 1px solid #ccc;
+    border-right: 0;
+    padding-left: 20px;
+    width: 60%;
+        }
+        .cart-summary-wrapper
+        .coupon-inputs button{
+            background-color: #d19c97;border: 0;
+    width: 40%;
+}.cart-summary-wrapper
+.cart-summary-body{
+    
+    border: 1px solid #ddd;
+    margin-top: 50px;
+    padding: 20px;
+}
+.cart-summary-wrapper
+.cart-summary-body
+.cart-summary-wrapper .cart-summary-item{
+    
+    display: flex;
+    justify-content: space-between;
+}
+.total-wrapper{
+    
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 20px;
+}
+.total-head{
+    
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.total-head h4{
+    margin: 0;
+}
+.proceed-input button{
+    
+    background-color: #d19c97;
+    border: 0;
+    padding: 20px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo wid-25 arrange-left">
+                <h1><span>E</span><span>Comm</span></h1>
+            </div>
+            <div class="search-products wid-50">
+                <input type="text" placeholder="Search For Products">
+                <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                        color="#d19c9" fill="none">
+                        <path d="M17.5 17.5L22 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg></button>
+            </div>
+            <div class="selected-products wid-25">
+                <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                        color="#d19c97" fill="none">
+                        <path d="M8 16L16.7201 15.2733C19.4486 15.046 20.0611 14.45 20.3635 11.7289L21 6"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M6 6H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="6" cy="20" r="2" stroke="currentColor" stroke-width="1.5" />
+                        <circle cx="17" cy="20" r="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M8 20L15 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path
+                            d="M2 2H2.966C3.91068 2 4.73414 2.62459 4.96326 3.51493L7.93852 15.0765C8.08887 15.6608 7.9602 16.2797 7.58824 16.7616L6.63213 18"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg><span>0</span></button>
+                <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                        color="#d19c97" fill="#d19c97">
+                        <path
+                            d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg><span>0</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-banner-wrapper">
+        <div class="wrapper">
+            <div class="banner-area wid-25">
+                <div class="list-header">
+                    <h4>Categories</h4>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            color="#000000" fill="none">
+                            <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+
+            </div>
+            <div class="wid-75">
+                <div class="shop-menu">
+                    <ul class="left-menu-list">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li class="dropdown-head"><a href="">Product-details <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                    <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></a>
+                            <ul class="dropdown">
+                                <li><a href="">Cart</a></li>
+                                <li><a href="">Check Out</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Contact
+
+                            </a></li>
+                    </ul>
+                    <ul class="right-menu-list">
+                        <li><a href="">Log In</a></li>
+                        <li><a href="">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="full-banner-wrapper">
+                <div class="shop-header wid-100">
+                    <h1>Your Shopping Details</h1>
+                    <h3>Home-Shopping Cart</h3>
+                </div>
+                <div class="wrapper next-row">
+                    <div class="wid-75 arrange-left">
+                        <div class="cart-details">
+                            <table>
+                                <tr>
+                                    <th> Product</th>
+                                    <th> Price</th>
+                                    <th> Quantity</th>
+                                    <th>Total</th>
+                                    <th>Remove</th>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/OIP.2JVtYrK7ukC6mVA9XMqYMwHaJ4?rs=1&pid=ImgDetMain" alt=""><span>Colorful Shirt</span></td>
+                                    <td><img src="" alt=""><span>$150</span></td>
+                                    <td>
+                                        <div class="quantity-input">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>$150</td>
+                                    <td> 
+                                      <div class="custom-delete-button"> <svg class=".custom-delete-button" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                            <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/R.61e0c589321f83a52d48b6509c2eb59e?rik=3BiKHvm6VJCAvw&riu=http%3a%2f%2fwww.cstylejeans.com%2fwp-content%2fuploads%2f2016%2f03%2fladies-fashion-dresses.jpg&ehk=rI2eQrj%2fMMRFvsJzHLIhGiPQRiVtmQOhaFKMuwhZSk0%3d&risl=&pid=ImgRaw&r=0" alt=""><span>Colorful Shirt</span></td>
+                                    <td><img src="" alt=""><span>$150</span></td>
+                                    <td>
+                                        <div class="quantity-input">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>$150</td>
+                                    <td> 
+                                      <div class="custom-delete-button"> <svg class=".custom-delete-button" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                            <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/OIP.ANtNwpPYwJmLG3aJQsRhdwHaLH?rs=1&pid=ImgDetMain" alt=""><span>Colorful Shirt</span></td>
+                                    <td><img src="" alt=""><span>$150</span></td>
+                                    <td>
+                                        <div class="quantity-input">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>$150</td>
+                                    <td> 
+                                      <div class="custom-delete-button"> <svg class=".custom-delete-button" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                            <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/R.acac605fed43a1986d0123cf6cd183b3?rik=TkBJcUTHEet0Lw&pid=ImgRaw&r=0" alt=""><span>Colorful Shirt</span></td>
+                                    <td><img src="" alt=""><span>$150</span></td>
+                                    <td>
+                                        <div class="quantity-input">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>$150</td>
+                                    <td> 
+                                      <div class="custom-delete-button"> <svg class=".custom-delete-button" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                            <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://th.bing.com/th/id/OIP.748wP-v1WiW8pkCbCuKDMgHaLF?rs=1&pid=ImgDetMain" alt=""><span>Colorful Shirt</span></td>
+                                    <td><img src="" alt=""><span>$150</span></td>
+                                    <td>
+                                        <div class="quantity-input">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        </div>
+                                    </td>
+                                    <td>$150</td>
+                                    <td> 
+                                      <div class="custom-delete-button"> <svg class=".custom-delete-button" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                            <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></div>
+                                    </td>
+                                </tr>
+
+                                </td>
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                    <div class="wid-25 arrange-left">
+                        <div class="cart-summary-wrapper">
+                            <div class="coupon-inputs">
+
+                                <input type="text" placeholder="Enter Coupon Code">
+                                <button>Apply Coupon</button>
+                            </div>
+                            <div class="cart-summary-body">
+                                <div class="cart-summary-item">
+                                    <h6>Sub Total</h6>
+                                    <h6>$160</h6>
+                                </div>
+                                <div class="cart-summary-item">
+                                    <h6>Shipping</h6>
+                                    <h6>$10</h6>
+                                </div></div>
+                                <div class="total-wrapper">
+                                    <div class="total-head">
+                                        <h4>Total</h4>
+                                        <h4>$170</h4>
+                                    </div>
+                                    <div class="proceed-input">
+                                        <button>Proceed To Check-out</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nani next-row">
+                <div class="abu wid-25 arrange-left">
+                    <div class="nyaana">
+                        <span class="ecomm">
+                            <h1>E</h1>
+                            <h1>Comm</h1>
+                        </span>
+                        <p>Lorem ipsum dolor sit amet c Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error,
+                            hic
+                            magnam. onsectetur adipisicing elit. Exercitationem, commodi quidem.</p>
+                        <address><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="black" fill="#d19c97">
+                                <path
+                                    d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <path
+                                    d="M12 2C16.8706 2 21 6.03298 21 10.9258C21 15.8965 16.8033 19.3847 12.927 21.7567C12.6445 21.9162 12.325 22 12 22C11.675 22 11.3555 21.9162 11.073 21.7567C7.2039 19.3616 3 15.9137 3 10.9258C3 6.03298 7.12944 2 12 2Z"
+                                    stroke="currentColor" stroke-width="1.5" />
+                            </svg>123.Sreet,New York, USA</address>
+                        <div class="email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                height="24" color="#000000" fill="#d19c97">
+                                <path
+                                    d="M20.5 16.9286V10C20.5 6.22876 20.5 4.34315 19.3284 3.17157C18.1569 2 16.2712 2 12.5 2H11.5C7.72876 2 5.84315 2 4.67157 3.17157C3.5 4.34315 3.5 6.22876 3.5 10V19.5"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M20.5 17H6C4.61929 17 3.5 18.1193 3.5 19.5C3.5 20.8807 4.61929 22 6 22H20.5"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M20.5 22C19.1193 22 18 20.8807 18 19.5C18 18.1193 19.1193 17 20.5 17"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M15 7L9 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 11L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>info@example.com</div>
+                        <div class="phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                height="24" color="black" fill="#d19c97">
+                                <path
+                                    d="M3.77762 11.9424C2.8296 10.2893 2.37185 8.93948 2.09584 7.57121C1.68762 5.54758 2.62181 3.57081 4.16938 2.30947C4.82345 1.77638 5.57323 1.95852 5.96 2.6524L6.83318 4.21891C7.52529 5.46057 7.87134 6.08139 7.8027 6.73959C7.73407 7.39779 7.26737 7.93386 6.33397 9.00601L3.77762 11.9424ZM3.77762 11.9424C5.69651 15.2883 8.70784 18.3013 12.0576 20.2224M12.0576 20.2224C13.7107 21.1704 15.0605 21.6282 16.4288 21.9042C18.4524 22.3124 20.4292 21.3782 21.6905 19.8306C22.2236 19.1766 22.0415 18.4268 21.3476 18.04L19.7811 17.1668C18.5394 16.4747 17.9186 16.1287 17.2604 16.1973C16.6022 16.2659 16.0661 16.7326 14.994 17.666L12.0576 20.2224Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                <path d="M14 3V5.8M18.9502 5.05078L16.9703 7.03068M21 10H18.2" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                            </svg>12345678909</div>
+                    </div>
+                </div>
+                <div class="abu wid-25 arrange-left">
+                    <div class="nyaana">
+                        <h1>Quick Links</h1>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Home</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Our Shop</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Shop Cart</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Shop Details</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>Contact Us</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>Check Out</h6>
+                    </div>
+                </div>
+                <div class="abu wid-25 arrange-left">
+                    <div class="nyaana">
+                        <h1>Quick Links</h1>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Home</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Our Shop</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg> Shop Cart</h6>
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>Shop Details</h6>
+
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>Check Out</h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="black">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>Contact Us</h6>
+                    </div>
+                </div>
+                <div class="abu wid-25 arrange-left">
+                    <div class="nyaana">
+                        <h1>Newsletter</h1>
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your Email">
+                        <button>Subscribe Now</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="h2-h3">
+                <span class="one">
+                    <p>&copy; Code Step By Step
+                </span>
+                <span class="two"> All Rights Reserved.Designed By</span>
+                <span class="three"> Anil Sidhu</span>
+                <img src="https://th.bing.com/th/id/OIP.zmr5gcr2R-ejKRKifMM0GQHaEw?w=1004&h=645&rs=1&pid=ImgDetMain"
+                    alt="">
+            </div>
+
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>self-practice</title>
+</head>
+
+<body>
+    <style>
+        .wid-25 {
+            width: 25%;
+        }
+
+        .wid-33 {
+            width: 33.3%;
+        }
+
+        .wid-50 {
+            width: 50%;
+        }
+
+        .next-row {
+            clear: both;
+        }
+
+        .arrange-left {
+            float: left;
+        }
+
+
+        .grandpa {
+            margin-right: 19px;
+            margin-left: 24px;
+        }
+
+        .parent .kid {
+            margin-top: 16px;
+            margin-right: 26px;
+            padding-right: -24px;
+            text-align: left;
+            border: 1px solid #ccc;
+            padding-left: 9px;
+        }
+
+        .kid h1 svg {
+            margin-right: 1px;
+        }
+
+        .brats .img img {
+            width: 100%;
+        }
+
+        .grams .paps {
+            border: 1px solid #dfc097;
+            margin-right: -8px;
+            margin-left: 39px;
+            margin-top: 26px;
+            margin-bottom: 8px;
+        }
+
+        .grams {
+            display: flex;
+        }
+
+        .paps .brats {
+            padding: 49px 14px;
+        }
+
+        .paps .brats .product-numbers {
+            font-size: 20px;
+            color: brown;
+            text-align: end;
+        }
+
+        .brats .h1 {
+            text-align: center;
+            color: brown;
+            font-size: larger;
+        }
+
+        .img-2 img {
+            width: 100%;
+        }
+
+        .grandma .mom {
+            margin-top: 11px;
+            margin-bottom: 24px;
+            margin-right: 5px;
+            margin-left: 7px;
+        }
+
+        .grandma {
+            display: flex;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .mom .dau {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .mom .dau h2 {
+            color: brown;
+            font-size: 29px;
+        }
+
+        .dau .price span:first-of-type {
+            font-size: 20px;
+            color: brown;
+            margin-right: 12px;
+            font-weight: 800;
+        }
+
+        .dau .price span:last-of-type {
+            font-size: 21px;
+            color: crimson;
+            text-decoration: line-through;
+        }
+
+        .mom .dau .details {
+            border-top: 1px solid black;
+            display: flex;
+            font-size: 17px;
+            gap: 6px;
+            padding: 10px 40px;
+        }
+
+        .nani .maa {
+            border: 1px solid black;
+            height: 545px;
+            margin-right: 1px;
+            margin-bottom: 8px;
+            margin-left: 38px;
+            background-color: antiquewhite;
+        }
+
+        .nani {
+            display: flex;
+        }
+
+        .bcha .img-3 img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            max-width: 56%;
+            left: 0;
+            max-height: 493%;
+        }
+
+        .bcha {
+            position: relative;
+        }
+
+        .bcha .all {
+            text-align: end;
+            padding: 22px 39px;
+        }
+
+        .all h4:first-of-type {
+            font-size: 18px;
+            color: brown;
+            font-weight: 800;
+            text-transform: capitalize;
+        }
+
+        .all h4:last-of-type {
+            font-size: 28px;
+            color: cadetblue;
+        }
+
+        .all h4:hover {
+            color: #f39821;
+            transition: all 0.3s ease;
+        }
+
+        .bcha .all button {
+            background-color: black;
+            color: white;
+            padding: 5px 18px;
+            margin-right: 26px;
+            font-size: 25px;
+        }
+
+        .bcha .all button:hover {
+            color: antiquewhite;
+            background-color: blueviolet;
+            font-size: 28px;
+            transition: all 2s ease;
+        }
+
+        .brats .img img:hover {
+            width: 110%;
+            transition: all 1s ease;
+        }
+
+        .mom .dau .img-2 img:hover {
+            width: 103%;
+            transition: all 1s ease;
+        }
+
+        .maa .bcha .img-3 img:hover {
+            transition: all 5s ease;
+            max-width: 58%;
+            max-height: 510%;
+            transform: rotate(360deg);
+        }
+
+        .vendor-list {
+
+            display: flex;
+            margin-top: 38pz;
+            margin-bottom: 100px;
+            margin-top: 110px;
+            justify-content: center;
+        }
+
+        .vendor-list img {
+            padding: 36px 40px;
+            margin-right: 14px;
+            width: 158px;
+            height: 105px;
+            margin-left: 14px;
+        }
+
+        .h2 h1 {
+            text-align: center;
+            font-size: 35px;
+            margin-top: 94px;
+            text-decoration: underline;
+            text-decoration-color: #5f9ea0;
+            color: #5f9ea0;
+            text-transform: uppercase;
+        }
+
+        .vendor-list img:hover {
+            width: 190px;
+            height: 130px;
+            transition: all 1s ease;
+        }
+    </style>
+    <div class="grandpa next-row">
+        <div class="parent wid-25 arrange-left">
+            <div class="kid">
+                <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" color="#d19c97"
+                        fill="none">
+                        <path d="M5 14.5C5 14.5 6.5 14.5 8.5 18C8.5 18 14.0588 8.83333 19 7" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>Quality Product</h1>
+            </div>
+        </div>
+        <div class="parent wid-25 arrange-left">
+            <div class="kid">
+                <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" color="#d19c97"
+                        fill="#dfc097">
+                        <circle cx="17" cy="18" r="2" stroke="currentColor" stroke-width="1.5"></circle>
+                        <circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.5"></circle>
+                        <path
+                            d="M11 17H15M13.5 7H14.4429C15.7533 7 16.4086 7 16.9641 7.31452C17.5196 7.62904 17.89 8.20972 18.6308 9.37107C19.1502 10.1854 19.6955 10.7765 20.4622 11.3024C21.2341 11.8318 21.6012 12.0906 21.8049 12.506C22 12.9038 22 13.375 22 14.3173C22 15.5596 22 16.1808 21.651 16.5755C21.636 16.5925 21.6207 16.609 21.6049 16.625C21.2375 17 20.6594 17 19.503 17H19"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path
+                            d="M13 7L13.9942 9.48556C14.4813 10.7034 14.7249 11.3123 15.2328 11.6561C15.7407 12 16.3965 12 17.7081 12H21"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path
+                            d="M4.86957 17C3.51684 17 2.84048 17 2.42024 16.5607C2 16.1213 2 15.4142 2 14V7C2 5.58579 2 4.87868 2.42024 4.43934C2.84048 4 3.51684 4 4.86957 4H10.1304C11.4832 4 12.1595 4 12.5798 4.43934C13 4.87868 13 5.58579 13 7V17H8.69565"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>Free Shipping</h1>
+            </div>
+        </div>
+        <div class="parent wid-25 arrange-left">
+            <div class="kid">
+                <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" color="#d19c97"
+                        fill="#dfc097">
+                        <path d="M20 17L4 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="M17 14C17 14 20 16.2095 20 17C20 17.7906 17 20 17 20" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5 7L20 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="M6.99998 4C6.99998 4 4.00001 6.20947 4 7.00002C3.99999 7.79058 7 10 7 10"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>14 Day Return</h1>
+            </div>
+        </div>
+        <div class="parent wid-25 arrange-left">
+            <div class="kid">
+                <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" color="#d19c97"
+                        fill="#dfc097">
+                        <path
+                            d="M3.77762 11.9424C2.8296 10.2893 2.37185 8.93948 2.09584 7.57121C1.68762 5.54758 2.62181 3.57081 4.16938 2.30947C4.82345 1.77638 5.57323 1.95852 5.96 2.6524L6.83318 4.21891C7.52529 5.46057 7.87134 6.08139 7.8027 6.73959C7.73407 7.39779 7.26737 7.93386 6.33397 9.00601L3.77762 11.9424ZM3.77762 11.9424C5.69651 15.2883 8.70784 18.3013 12.0576 20.2224M12.0576 20.2224C13.7107 21.1704 15.0605 21.6282 16.4288 21.9042C18.4524 22.3124 20.4292 21.3782 21.6905 19.8306C22.2236 19.1766 22.0415 18.4268 21.3476 18.04L19.7811 17.1668C18.5394 16.4747 17.9186 16.1287 17.2604 16.1973C16.6022 16.2659 16.0661 16.7326 14.994 17.666L12.0576 20.2224Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                        <path
+                            d="M12 7H12.8571C13.2612 7 13.4632 7 13.5888 7.12204C13.7143 7.24408 13.7143 7.4405 13.7143 7.83333C13.7143 8.61901 13.7143 9.01184 13.4632 9.25592C13.2723 9.44155 12.9929 9.486 12.5145 9.49665C12.2692 9.50211 12.1465 9.50484 12.0732 9.5777C12 9.65056 12 9.76704 12 10V11.1667C12 11.5595 12 11.7559 12.1255 11.878C12.2511 12 12.4531 12 12.8571 12H13.7143M18 7V9.5M18 9.5H16.5429C16.2196 9.5 16.058 9.5 15.9576 9.40237C15.8571 9.30474 15.8571 9.1476 15.8571 8.83333V7M18 9.5V12"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path
+                            d="M10 4.30518C10.089 4.20518 10.1815 4.10717 10.2774 4.01129C12.9591 1.32957 17.307 1.32957 19.9887 4.01129C22.6704 6.693 22.6704 11.0409 19.9887 13.7226C19.8928 13.8185 19.7948 13.911 19.6948 14"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    </svg>24/7 Support</h1>
+            </div>
+        </div>
+
+
+
+    </div>
+    <br>
+    <div class="line"></div>
+    <div class="grams next-row">
+        <div class="paps wid-33 arrange-left">
+            <div class="brats">
+                <div class="product-numbers">20 Products</div>
+                <div class="img">
+                    <img src="https://th.bing.com/th/id/OIP.2JVtYrK7ukC6mVA9XMqYMwHaJ4?rs=1&pid=ImgDetMain" alt="">
+                </div>
+                <div class="h1">
+                    <h1>Mens Wear</h1>
+                </div>
+            </div>
+        </div>
+        <div class="paps wid-33 arrange-left">
+            <div class="brats">
+                <div class="product-numbers">40 Products</div>
+                <div class="img">
+                    <img src="https://th.bing.com/th/id/R.61e0c589321f83a52d48b6509c2eb59e?rik=3BiKHvm6VJCAvw&riu=http%3a%2f%2fwww.cstylejeans.com%2fwp-content%2fuploads%2f2016%2f03%2fladies-fashion-dresses.jpg&ehk=rI2eQrj%2fMMRFvsJzHLIhGiPQRiVtmQOhaFKMuwhZSk0%3d&risl=&pid=ImgRaw&r=0"
+                        alt="">
+                </div>
+                <div class="h1">
+                    <h1>Ladies Wear</h1>
+                </div>
+            </div>
+        </div>
+        <div class="paps wid-33 arrange-left">
+            <div class="brats">
+                <div class="product-numbers">30 Products</div>
+                <div class="img">
+                    <img src="https://th.bing.com/th/id/OIP.ANtNwpPYwJmLG3aJQsRhdwHaLH?rs=1&pid=ImgDetMain" alt="">
+                </div>
+                <div class="h1">
+                    <h1>Kids Wear</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grandma next-row">
+        <div class="mom wid-25 arrange-left">
+            <div class="dau">
+                <div class="img-2">
+                    <img src="https://th.bing.com/th/id/OIP.748wP-v1WiW8pkCbCuKDMgHaLF?rs=1&pid=ImgDetMain" alt="">
+                </div>
+                <h2>Colorful Shirts</h2>
+                <span class="price">
+                    <span>$100</span>
+                    <span>$120</span>
+                </span>
+                <div class="details">
+                    <div class="first"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                            <path
+                                d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>View Details</div>
+                    <div class="second"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path
+                                d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H19M6 6.5H8"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M11 8.5C11.4915 9.0057 12.7998 11 13.5 11M16 8.5C15.5085 9.0057 14.2002 11 13.5 11M13.5 11V3"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <circle cx="10.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                            <circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                        </svg>Add To Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="mom wid-25 arrange-left">
+            <div class="dau">
+                <div class="img-2">
+                    <img src="https://th.bing.com/th/id/R.fa65310290d7d66b163862c43b6a794e?rik=PYXUaLUmwBuqig&riu=http%3a%2f%2fmenscraze.com%2fwp-content%2fuploads%2f2016%2f05%2fDavid-Gandy-Style.jpg&ehk=boua1Dz78BNmsgP1hebpkQYgugR2%2fzmRWN%2bGvDXAnk8%3d&risl=&pid=ImgRaw&r=0"
+                        alt="">
+                </div>
+                <h2>Colorful Shirts</h2>
+                <span class="price">
+                    <span>$100</span>
+                    <span>$120</span>
+                </span>
+                <div class="details">
+                    <div class="first"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                            <path
+                                d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>View Details</div>
+                    <div class="second"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path
+                                d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H19M6 6.5H8"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M11 8.5C11.4915 9.0057 12.7998 11 13.5 11M16 8.5C15.5085 9.0057 14.2002 11 13.5 11M13.5 11V3"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <circle cx="10.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                            <circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                        </svg>Add To Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="mom wid-25 arrange-left">
+            <div class="dau">
+                <div class="img-2">
+                    <img src="https://c.pxhere.com/photos/e2/c5/daytime_dress_fashion_fashionable_model_outdoors_person_photoshoot-1531693.jpg!d"
+                        alt="">
+                </div>
+                <h2>Colorful Shirts</h2>
+                <span class="price">
+                    <span>$100</span>
+                    <span>$120</span>
+                </span>
+                <div class="details">
+                    <div class="first"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                            <path
+                                d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>View Details</div>
+                    <div class="second"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path
+                                d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H19M6 6.5H8"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M11 8.5C11.4915 9.0057 12.7998 11 13.5 11M16 8.5C15.5085 9.0057 14.2002 11 13.5 11M13.5 11V3"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <circle cx="10.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                            <circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                        </svg>Add To Cart</div>
+                </div>
+            </div>
+        </div>
+        <div class="mom wid-25 arrange-left">
+            <div class="dau">
+                <div class="img-2">
+                    <img src="https://th.bing.com/th/id/OIP.JAdpG91XYhgJQ8nPkxfiVQHaLG?rs=1&pid=ImgDetMain" alt="">
+                </div>
+                <h2>Colorful Shirts</h2>
+                <span class="price">
+                    <span>$100</span>
+                    <span>$120</span>
+                </span>
+                <div class="details">
+                    <div class="first"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path d="M2 8C2 8 6.47715 3 12 3C17.5228 3 22 8 22 8" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                            <path
+                                d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>View Details</div>
+                    <div class="second"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" color="darkslategrey" fill="white">
+                            <path
+                                d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H19M6 6.5H8"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M11 8.5C11.4915 9.0057 12.7998 11 13.5 11M16 8.5C15.5085 9.0057 14.2002 11 13.5 11M13.5 11V3"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path
+                                d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <circle cx="10.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                            <circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle>
+                        </svg>Add To Cart</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nani next-row">
+        <div class="maa wid-50 arrange-left">
+            <div class="bcha">
+                <div class="img-3">
+                    <img src="https://th.bing.com/th/id/OIP.Mp5NXfPgAykFry_UiZso2AHaLH?rs=1&pid=ImgDetMain" alt="">
+                </div>
+                <div class="all">
+                    <h4>10% Off On First Orders</h4>
+                    <h4>Spring Collection</h4>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="maa wid-50 arrange-left">
+            <div class="bcha">
+                <div class="img-3">
+                    <img src="https://th.bing.com/th/id/R.acac605fed43a1986d0123cf6cd183b3?rik=TkBJcUTHEet0Lw&pid=ImgRaw&r=0"
+                        alt="">
+                </div>
+                <div class="all">
+                    <h4>10% Off On First Orders</h4>
+                    <h4>Spring Collection</h4>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="h2">
+        <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="44" height="44" color="#000000"
+                fill="none">
+                <path d="M2.5 12L21.5002 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>Our Branding Partners<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="44"
+                height="44" color="#000000" fill="none">
+                <path d="M2.5 12L21.5002 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg></h1>
+    </div>
+
+    <div class="vendor-list">
+        <img src="https://cdn.ecommercedns.uk/files/8/216208/2/1945882/logo.png" alt="">
+        <img src="https://media.licdn.com/dms/image/C560BAQGEYPM3yD1zAA/company-logo_200_200/0/1652871300635?e=2147483647&v=beta&t=p5H7KDljKoItXQ8AxJ27lbj7-oF5P4VImAPFAspHboo"
+            alt="">
+        <img src="https://cdn.shopify.com/s/files/1/1592/0041/files/NEW_LOGO_-_Black.svg?v=1675150363" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/2337/7003/files/laam_logo_7509750b-f46a-4cca-afb2-54b558126e81.png?v=1599740777"
+            alt="">
+        <img src="https://www.alkaramstudio.com/cdn/shop/files/700x105.png?v=1713331800&width=180" alt="">
+    </div>
+
+
+
+
+</body>
+
+</html>
